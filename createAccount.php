@@ -7,6 +7,7 @@
 <div id="wrapper">
 	<?php
 		include 'head.php';
+//    phpinfo();
 	?>
 
     <div id="page"><div class="inner_copy"><div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div></div>
