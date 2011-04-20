@@ -19,8 +19,8 @@ function formValidate(formName, arg1, arg2, arg3){
 	var frm = formName		//Store the name for the form
 
 	for(i = 0; i < fields.length; i++){
-		if(document.getElementById(fields[i]).value == ""){
-			alert("You did not enter a " + fields[i]+".\n Please enter a " + fields[i] + " and try again");
+		if(document.getElementById(fields[i]).value.length < 6){
+			alert("Your " + fields[i]+" was less than 6 characters. Please enter a correct " + fields[i] + " and try again");
 			document.getElementById(fields[i]).value = "";
 			document.getElementById(fields[i]).focus();
 			return false;
