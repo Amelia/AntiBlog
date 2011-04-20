@@ -18,16 +18,17 @@
 					<p class="meta"><span class="date">&nbsp;</span><span class="posted">&nbsp;</span></p>
 					<div style="clear:both">&nbsp;</div>
 						<div class="entry">
-							<form method="post" action="registerAccount.php">
-                            <label for="username">Username:</label>
-                            <input type="text" id="username" name="username" /><br />
-                            <label for="pw">Password:</label>
-                            <input type="password" id="pw" name="pw" /><br /><p></p>
-                            <table>
-                            <tr>
-                            <td><input type="submit" value="Register" name="submit" /></td>
-                            </table>
-                            </form>
+							<script type="text/javascript" language="JavaScript" src="scripts/formValidate.js"></script>
+							<form method="post" id="create" action="registerAccount.php" onsubmit="return formValidate('create', 'username', 'password', 'confirmation')">
+								<label for="username">Username:</label>
+								<input type="text" id="username" name="username" /><br />
+								<label for="password">Password:</label>
+								<input type="password" id="password" name="password" /><br />
+								<label for="confirmation">Confirmation:</label>
+								<input type="password" id="confirmation" name="confirmation" /><br /><p></p>
+
+								<input type="submit" value="Register" name="submit" />
+							</form>
 						</div>
 					</div>
 					<div style="clear:both">&nbsp;</div>
