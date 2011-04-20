@@ -29,9 +29,9 @@
         		}
     		}
     		if($error == FALSE){
-        		$obj= array("username"=>$name, "password" => $pw);
+        		$obj= array("username"=>$name, "password" => sha1($pw));
         		$collection->insert($obj);
-   	 	}
+   	    	}
 	?>
 
     <div id="page"><div class="inner_copy"><div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div></div>

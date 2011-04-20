@@ -16,6 +16,29 @@
 <div id="wrapper">
 	<?php
 		include 'head.php';
+        if($_POST['username']!=null){
+            $username = $_POST['username'];
+        }else{
+            $username = $_SESSION['username'];
+        }
+            $connection = new Mongo();
+    		$db = $connection->antiblog;
+    		$collection = $db->profiles;
+
+            $query = array("username"=> $username);
+//                    $rangeQuery = array('x' => array( '$gt' => 5, '$lt' => 20 ));
+    		$cursor = $collection->find($query);
+    		$error = FALSE;
+    		foreach($cursor as $obj){
+                $username = $obj["username"];
+                $first = $obj["first"];
+                $last = $obj["last"];
+                $interest = $obj["interest"];
+                $dob = $obj["dob"];
+                $about = $obj["about"];
+
+    		}
+
 	?>
 	<div id="page"><div class="inner_copy"><div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div></div>
 		<div id="page-bgtop">
@@ -23,26 +46,24 @@
 				<div class="post">
 					<table id="profile">
 							<th id="user">Username:</th>
-							<td>Phil</td>
+							<td><?php echo $username ?></td>
 							<td rowspan=3 id="pic"> <img src="images/hobbit.jpg" width="225" height="151" alt="Place profile picture here" /></td>
 						<tr>
 							<th>First Name:</th>
-							<td>Phillip</td>
+							<td><?php echo $first ?></td>
 						<tr>
 							<th>Last Name:</th>
-							<td>Thomas</td>
+							<td><?php echo $last ?></td>
 						<tr>
 							<th>Interests:</th>
-							<td>Computers, Programming, Paintball, and Hockey</td>
+							<td><?php echo $interest ?></td>
 						<tr>
 							<th>Date of Birth:</th>
-							<td>3/31/1990</td>
+							<td><?php echo $dob ?></td>
 						<tr>
 							<th>Description:</th>
-							<td>Place a blurb about yourself here! I'm a Libra that enjoys long
-								walks on the beach. I like to watch the sunrise through my window.
-								My favorite activities are jump rope and tic tac toe with my friends...
-							</td>
+							<td><?php echo $about ?></td>
+                            <td><?php echo date("m/d/y");?></td>
 						<tr>
 					</table>
 					<table style="text-align:center">
