@@ -34,6 +34,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 		<ul>
 			<li class="current_page_item"><a href="index.php">Home</a></li>
 			<li><a href="blog.php">My Blog</a></li>
+			<li><a href="addBlog.php">Create Post</a></li>
 			<li><a href="profile.php">My Profile</a></li>
 			<li><a href="users.php">Other Blogs</a></li>
 			<li><a href="support.php">Support</a></li>
