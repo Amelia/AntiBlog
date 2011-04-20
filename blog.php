@@ -33,23 +33,31 @@
 					//$title = $collection->find();
 					
 					//$queryName = array("body" => "");
-                			$bod = $collection->find();
+                			$cursor = $collection->find();
 					//$date = $collection->find();
 				?>
+				<?php
+				foreach($cursor as $obj){
+				?>
 				<div class="post">
-					<h2 class="title"><a href="#">Title</a></h2>
-					<p class="meta"><span class="date">April 14, 2011</span><span class="posted">Posted by: <a href="#">User</a></span></p>							
+					<h2 class="title"><a href="#">
+					<?php
+						 echo''.$obj ['title'].'';
+					?></a></h2>
+
+					<p class="meta"><span class="date"><?php echo''.$obj['date'].'';?></span><span class="posted">Posted by: <a href="#">User</a></span></p>							
 					<div style="clear:both">&nbsp;</div>
 						<div class="entry">
 							<?php
-							foreach($bod as $obj){
-								echo 'Please' .$obj['body'] . '<br/>';
-							}
+								
+								echo''.$obj['body'].'' ;
+							
 							?>
 						</div>
 					</div>
 					<div style="clear:both">&nbsp;</div>
 				</div>
+					<?php  } ?>
 			</div>
 		</div>
 	</div>
