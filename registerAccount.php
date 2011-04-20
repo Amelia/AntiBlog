@@ -12,7 +12,7 @@
    		include "anti_xss.php";
 
     		$name = anti_xss($_POST['username']);
-    		$pw = $_POST['pw'];
+    		$pw = $_POST['password'];
 
 		//    $name=mysqli_real_escape_string($db,$name);
 		//    $pw=mysqli_real_escape_string($db,$pw);
