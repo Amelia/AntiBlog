@@ -6,7 +6,7 @@
 <body>
 <div id="wrapper">
 	<?php
-		include 'head.php';
+		include 'createAccountHead.php';
 //    phpinfo();
 	?>
 
