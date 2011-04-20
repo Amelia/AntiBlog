@@ -1,15 +1,16 @@
+<script type="text/javascript" language="JavaScript" src="scripts/formValidate.js"></script>
 <div id="header">
 		<div id="logo">
 			<h1><a href="index.php">anti-blog </a></h1>
 			<p><i>let's talk</i></p>
 		</div>
 		<div id="login">
-			<form action="login.php" method="post">
+			<form action="login.php" method="post" id="login" onsubmit="return formValidate('login','username', 'password')">
 				<table>
 					<tr><td>user name:</td>
 						<td><input id="username" type="text" name="username"></td>
 					<tr><td>password:</td>
-						<td><input id="pw" type="password" name="pw"></td>
+						<td><input id="password" type="password" name="pw"></td>
 					<tr><td><a href="createAccount.php">register?</a></td>
 						<td><button id="Login">login</button></td>
 				</table>

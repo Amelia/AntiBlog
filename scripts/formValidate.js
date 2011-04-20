@@ -9,12 +9,14 @@
 	met
 */
 
-function formValidate(arg1, arg2, arg3){
+function formValidate(formName, arg1, arg2, arg3){
 	var fields = new Array();	//create an array to store all of the field names
 
 	fields[0] = arg1;
 	fields[1] = arg2;
 	fields[2] = arg3;
+
+	var frm = formName		//Store the name for the form
 
 	for(i = 0; i < fields.length; i++){
 		if(document.getElementById(fields[i]).value == ""){
@@ -23,12 +25,7 @@ function formValidate(arg1, arg2, arg3){
 			document.getElementById(fields[i]).focus();
 			return false;
 		}
-		else if(document.getElementById(fields[i]).length < 5){
-			alert("Your "+ fields[i]+ " is less than 5 characters long.");
-			document.getElementById(fields[i]).value = "";
-			document.getElementById(fields[i]).focus();
-			return false;
-		}
-		return true;	
 	}
+	document.getElementById(frm).submit();
+	return true;
 }
