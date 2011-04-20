@@ -12,12 +12,19 @@
 <div id="wrapper">
 	<?php
 		include 'head.php';
-	?>
+?>
 <div id="page"><div class="inner_copy"><div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div></div>
     <div id="page-bgtop">
         <div id="page-bgbtm">
             <div class="post">
-
+<?php
+if($_SESSION['name'] == '')
+{
+	echo 'Error: please log in.';	
+}
+else
+{
+?>
         <form method="post" action="editProfileController.php" name=editProfile>
 		<table id="profile">
             <tr>
@@ -45,6 +52,7 @@
             </tr>
 		</table>
         </form> 
+<?php } ?>
             </div>
         </div>
 	</div>

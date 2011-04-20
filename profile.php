@@ -16,8 +16,8 @@
 <div id="wrapper">
 	<?php
 		include 'head.php';
-        if($_POST['username']!=null){
-            $username = $_POST['username'];
+        if($_GET['username']!=null){
+            $username = $_GET['username'];
         }else{
             $username = $_SESSION['name'];
         }
@@ -65,6 +65,10 @@
 <!--                            <td>--><?php //echo date("m/d/y");?><!--</td>-->
 						<tr>
 					</table>
+					<?php
+					if($username == $_SESSION['name'])
+					{
+					?>
 					<table style="text-align:center">
 						<tr>
 							<td>
@@ -78,6 +82,9 @@
 								</form>
 							</td>
 					</table>
+					<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
