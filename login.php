@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
 <head>
 	<title>anti-blog</title>
@@ -20,10 +21,10 @@
                 $db = $connection->antiblog;
                 $collection = $db->users;
 
-                $cursor = $collection->find();
+                    $cursor = $collection->find();
                 $found = FALSE;
                 foreach($cursor as $obj){
-                    if($obj["username"] == $name && $obj["password"] == $pw){
+                    if($obj["username"] == $name && $obj["password"] == sha1($pw)){
                         $found = TRUE;
                     echo "<p>Thanks for logging in, $name</p>\n";
 					echo "<p><a href=\"index.php\">Continue</a></p>";

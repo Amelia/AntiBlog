@@ -26,6 +26,13 @@ function formValidate(formName, arg1, arg2, arg3){
 			return false;
 		}
 	}
+	if(document.getElementById(fields[1]).value != document.getElementById(fields[2]).value){
+		alert("Your password and confirmation don't match.");
+		document.getElementById(fields[1]).value = "";
+		document.getElementById(fields[2]).value = "";
+		document.getElementById(fields[1]).focus();
+		return false;
+	}
 	document.getElementById(frm).submit();
 	return true;
 }
