@@ -21,6 +21,11 @@
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
 				<?php
+				if($_GET['username']!=null){
+					$username = $_GET['username'];
+				}else{
+					$username = $_SESSION['name'];
+				}
 			                include "header.php";
                				include "anti_xss.php";
 
@@ -33,7 +38,8 @@
 					//$title = $collection->find();
 					
 					//$queryName = array("body" => "");
-                			$cursor = $collection->find();
+					$query = array("username"=> $username);
+                			$cursor = $collection->find($query);
 					//$date = $collection->find();
 				?>
 				<?php

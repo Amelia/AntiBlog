@@ -41,7 +41,7 @@
 							?>		
 								//code to make row of table here			
        																		
-						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td>2</td><td>April, 14 2011</td>
+						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td><a href="blog.php?username=<?php echo $obj["username"]?>">2</a></td><td>April, 14 2011</td>
 																								}
 						<?php	}
 						}?>
