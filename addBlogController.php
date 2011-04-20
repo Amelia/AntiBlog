@@ -10,8 +10,8 @@
     		$collection = $db->blog;
 
             $username = $_SESSION['name'];
-            $title = $_POST['title'];
-            $body = $_POST['body'];
+            $title = anti_xss($_POST['title']);
+            $body = anti_xss($_POST['body']);
             $date = date('D, d M Y H:i:s T');
 
 						$obj= array("username"=>$username, "title" => $title, "body" => $body, "date" => $date);

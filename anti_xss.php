@@ -11,9 +11,9 @@ if(!$anti_xss_function_exists)
 
 		//parse newlines as <br> -- don't allow <br> because we only
 		//want it to be allowed on forms that support multi-line entry
-		$raw = nl2br($raw);
+		//$raw = nl2br($raw);
 		$raw = str_replace("\r",'',$raw);
-		$raw = str_replace("\n",'',$raw);
+		$raw = str_replace("\n",'<br>',$raw);
 
 		//return the result
 		return $raw;
