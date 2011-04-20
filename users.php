@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -26,8 +27,27 @@
 					<table border=1 id="users">
 						<th>User Name</th><th>Number of Posts</th><th>Register Date</th>
 						<tr><td><a href="#">Phil</a></td><td>2</td><td>April, 14 2011</td>
-					</table>
-					<div style="clear:both">&nbsp;</div>
+					<?php	$connection = new Mongo();
+						$db = $connection->antiblog;
+						$collection=$db->users;
+
+						$cursor = $collection->find();
+						$found=FALSE;
+
+						//while db has more entries
+						foreach($cursor as $obj){
+							//if entry is not $_SESSION['name'];
+							if($obj["username"] !=$name){
+							?>		
+								//code to make row of table here			
+       																		
+						<tr><td><a href="#"><?php echo $obj["username"]?></a></td><td>2</td><td>April, 14 2011</td>
+																								}
+						<?php	}
+						}?>
+
+</table>
+<div style="clear:both">&nbsp;</div>
 				</div>
 			</div>
 		</div>
