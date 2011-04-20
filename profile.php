@@ -19,7 +19,7 @@
         if($_POST['username']!=null){
             $username = $_POST['username'];
         }else{
-            $username = $_SESSION['username'];
+            $username = $_SESSION['name'];
         }
             $connection = new Mongo();
     		$db = $connection->antiblog;
@@ -30,7 +30,6 @@
     		$cursor = $collection->find($query);
     		$error = FALSE;
     		foreach($cursor as $obj){
-                $username = $obj["username"];
                 $first = $obj["first"];
                 $last = $obj["last"];
                 $interest = $obj["interest"];
@@ -63,7 +62,7 @@
 						<tr>
 							<th>Description:</th>
 							<td><?php echo $about ?></td>
-                            <td><?php echo date("m/d/y");?></td>
+<!--                            <td>--><?php //echo date("m/d/y");?><!--</td>-->
 						<tr>
 					</table>
 					<table style="text-align:center">
