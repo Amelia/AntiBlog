@@ -26,7 +26,6 @@
 					<p class="meta"><span class="date">April 14, 2011</span><span class="posted">Posted by: <a href="#">Admin</a></span></p>							
 					<table border=1 id="users">
 						<th>User Name</th><th>Number of Posts</th><th>Register Date</th>
-						<tr><td><a href="#">Phil</a></td><td>2</td><td>April, 14 2011</td>
 					<?php	$connection = new Mongo();
 						$db = $connection->antiblog;
 						$collection=$db->users;
