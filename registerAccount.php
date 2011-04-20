@@ -8,7 +8,7 @@
 <body>
 <div id="wrapper">
 	<?php
-		include 'head.php';
+		include 'createAccountHead.php';
         include "anti_xss.php";
 
     $name = anti_xss($_POST['username']);
