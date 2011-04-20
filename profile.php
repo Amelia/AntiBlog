@@ -69,7 +69,7 @@
 					<table style="text-align:center">
 						<tr>
 							<td>
-								<form action="changeAccount.php" method="post">
+								<form action="editProfile.php" method="post">
 									<button id="change">Change Profile</button>
 								</form>
 							</td>
