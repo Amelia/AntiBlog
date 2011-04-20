@@ -45,7 +45,7 @@
 						 echo''.$obj ['title'].'';
 					?></a></h2>
 
-					<p class="meta"><span class="date"><?php echo''.$obj['date'].'';?></span><span class="posted">Posted by: <a href="#">User</a></span></p>							
+					<p class="meta"><span class="date"><?php echo''.$obj['date'].'';?></span><span class="posted">Posted by: <a href="#"><?php echo $obj['username'] ?></a></span></p>							
 					<div style="clear:both">&nbsp;</div>
 						<div class="entry">
 							<?php
