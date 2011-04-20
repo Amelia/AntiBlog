@@ -20,23 +20,32 @@
 	<div id="page"><div class="inner_copy"><div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div></div>
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
+				<?php
+			                include "header.php";
+               				include "anti_xss.php";
+
+                			$name = anti_xss($_SESSION['name']);
+
+                			$connection = new Mongo();
+                			$db = $connection->antiblog;
+                			$collection = $db->blog;
+
+					//$title = $collection->find();
+					
+					//$queryName = array("body" => "");
+                			$bod = $collection->find();
+					//$date = $collection->find();
+				?>
 				<div class="post">
-					<h2 class="title"><a href="#">Area 51</a></h2>
+					<h2 class="title"><a href="#">Title</a></h2>
 					<p class="meta"><span class="date">April 14, 2011</span><span class="posted">Posted by: <a href="#">User</a></span></p>							
 					<div style="clear:both">&nbsp;</div>
 						<div class="entry">
-							Area 51 might just be that military enclave. The actual base has long been a very closely-guarded
-							secret, including wide "trespassers will be shot" stretches around the base itself and a large 
-							no-fly zone surrounding it. According to conspiracy theorists, what we can see of Area 51 is just 
-							the tip of the paranoid iceberg. The base allegedly features elaborate underground labs, hidden 
-							tunnels, a dedicated extra-terrestrial runway that can disappear and reappear, and research 
-							programs dedicated to reverse-engineering alien technology. In one particularly colorful and 
-							alluring detail, two different alleged former Area 51 employees reported working side-by-side 
-							with an alien being named "J-Rod" on cloning alien viruses and on a telepathic translator device 
-							it's funnier if you imagine J-Rod as Jar-Jar; I'd watch that movie). And the mystery of Area 51 
-							is still only one example of the vast network of supposed government cover-up of alien contact.
-							
-							PS. This was ripped from wiki for demonstration purposes
+							<?php
+							foreach($bod as $obj){
+								echo 'Please' .$obj['body'] . '<br/>';
+							}
+							?>
 						</div>
 					</div>
 					<div style="clear:both">&nbsp;</div>
