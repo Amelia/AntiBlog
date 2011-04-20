@@ -38,11 +38,20 @@
 						foreach($cursor as $obj){
 							//if entry is not $_SESSION['name'];
 							if($obj["username"] !=$name){
-							?>		
+
+							$query2=array("username"=> $obj["username"]);
+							$collection2=$db->blog;
+							$cursor2 = $collection2->find($query2);
+							$count=0;
+							foreach($cursor2 as $obj2)
+								$count++;
+
+
+
 								//code to make row of table here			
+							?>		
        																		
-						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td><a href="blog.php?username=<?php echo $obj["username"]?>">2</a></td><td>April, 14 2011</td>
-																								}
+						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td><a href="blog.php?username=<?php echo $obj["username"]?>"><?php echo $count ?> posts</a></td><td>April, 14 2011</td>
 						<?php	}
 						}?>
 
