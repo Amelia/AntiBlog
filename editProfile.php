@@ -1,4 +1,9 @@
 <html>
+<SCRIPT LANGUAGE="JavaScript" SRC="scripts/calendarPopup.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
+	var cal = new CalendarPopup();
+</SCRIPT>
+
 <head>
 	<title>anti-blog</title>
 	<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
@@ -13,7 +18,7 @@
         <div id="page-bgbtm">
             <div class="post">
 
-        <form method="post" action="changeAccountController.php.php" name=changepw>
+        <form method="post" action="editProfileController.php" name=editProfile>
 		<table id="profile">
             <tr>
                 <th><label for="first">New First Name:</label></th>
@@ -27,17 +32,19 @@
             <tr>
                  <th><label for="dob">New Date of Birth:</label></th>
                 <td>
-                    <INPUT TYPE="text" NAME="date1" VALUE="" SIZE=25>
-                    <A HREF="#"
-                       onClick="cal.select(document.forms['example'].date1,'anchor1','MM/dd/yyyy'); return false;"
-                       NAME="anchor1" ID="anchor1">select</A>
+                    <INPUT TYPE="text" NAME="dob" ID="dob" VALUE="" SIZE=25>
+                    <A HREF="#" onClick="cal.select(document.forms['editProfile'].dob,'anchor1','MM/dd/yyyy'); return false;" NAME="anchor1" ID="anchor1">select</A>
+
                 </td>
             <tr>
                  <th><label for="about">New About Me:</label></th>
                 <td><input type="text" id="about" name="about" /></td>
             <tr>
-            <tr><td></td></tr>
+            <tr>
+                <td><input type="submit" value="Update Profile"/></td>
+            </tr>
 		</table>
+        </form> 
             </div>
         </div>
 	</div>
@@ -60,9 +67,10 @@
 				<td><input disabled type="submit" value="Change Password" name="submit" /> <span id='pwerror'></span></td>
 			</form>
 
-<INPUT TYPE="text" NAME="date1" VALUE="" SIZE=25>
-<A HREF="#"
-   onClick="cal.select(document.forms['example'].date1,'anchor1','MM/dd/yyyy'); return false;"
-   NAME="anchor1" ID="anchor1">select</A>
-
+                    <FORM NAME="example">
+                    <INPUT TYPE="text" NAME="date1" VALUE="" SIZE=25>
+                    <A HREF="#"
+                       onClick="cal.select(document.forms['example'].date1,'anchor1','MM/dd/yyyy'); return false;"
+                       NAME="anchor1" ID="anchor1">select</A>
+                    </FORM>
 			-->
