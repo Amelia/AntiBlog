@@ -21,7 +21,7 @@
 			<div id="page-bgbtm">
 				<div class="users">
 					<h2 class="title"><a href="#">anti-blog Profiles </a></h2>
-					<p class="meta"><span class="date">April 14, 2011</span><span class="posted">Posted by: <a href="#">Admin</a></span></p>							
+					<p class="meta"><span class="date"></span><span class="posted"></span></p>							
 					<table border=1 id="users">
 						<th>User Name</th><th>Number of Posts</th><th>Register Date/Time</th>
 					<?php	$connection = new Mongo();
