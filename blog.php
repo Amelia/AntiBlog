@@ -39,7 +39,7 @@
 					
 					//$queryName = array("body" => "");
 					$query = array("username"=> $username);
-                			$cursor = $collection->find($query);
+                			$cursor = $collection->find($query)->sort(array('$natural' => -1));
 					//$date = $collection->find();
 				?>
 				<?php

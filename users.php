@@ -30,7 +30,7 @@
 						$db = $connection->antiblog;
 						$collection=$db->users;
 
-						$cursor = $collection->find();
+						$cursor = $collection->find()->sort(array('username' => 1));
 						$found=FALSE;
 
 						//while db has more entries
