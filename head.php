@@ -41,6 +41,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 					}
 				?>
 				><a href="index.php">Home</a></li>
+
 			<?php if($_SESSION['name'] != ''){ ?>
 				<li
 					<?php 
@@ -49,14 +50,44 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 						}
 					?>
 					><a href="blog.php">My Blog</a></li>
-				<li><a href="addBlog.php">Create Post</a></li>
-				<li><a href="profile.php">My Profile</a></li>
+				<li
+					<?php 
+						if(strpos($_SERVER['PHP_SELF'], 'addBlog.php')){
+							echo ' class="current_page_item"';
+						}
+					?>
+					><a href="addBlog.php">Create Post</a></li>
+				<li
+					<?php 
+						if(strpos($_SERVER['PHP_SELF'], 'profile.php')){
+							echo ' class="current_page_item"';
+						}
+					?>
+					><a href="profile.php">My Profile</a></li>
 			<?php } ?>
-			<li><a href="users.php">Bloggers</a></li>
-			<li><a href="support.php">Support</a></li>
+			<li
+				<?php 
+					if(strpos($_SERVER['PHP_SELF'], 'users.php')){
+						echo ' class="current_page_item"';
+					}
+				?>
+				><a href="users.php">Bloggers</a></li>
+			<li
+				<?php 
+					if(strpos($_SERVER['PHP_SELF'], 'support.php')){
+						echo ' class="current_page_item"';
+					}
+				?>
+				><a href="support.php">Support</a></li>
 			<?php if($_SESSION['name'] != '')
 			{ ?>
-			<li><a href="logout.php">Logout</a></li>
+			<li
+				<?php 
+					if(strpos($_SERVER['PHP_SELF'], 'logout.php')){
+						echo ' class="current_page_item"';
+					}
+				?>
+				><a href="logout.php">Logout</a></li>
 			<?php
 			}
 			?>
