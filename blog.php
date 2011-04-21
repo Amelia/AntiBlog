@@ -41,7 +41,9 @@
 					//$date = $collection->find();
 				?>
 				<?php
+				$count=0;
 				foreach($cursor as $obj){
+				$count++;
 				?>
 				<div class="post">
 					<h2 class="title"><a href="#">
@@ -61,7 +63,17 @@
 					</div>
 					<div style="clear:both">&nbsp;</div>
 				</div>
-					<?php  } ?>
+					<?php  } 
+					if($count == 0)
+						echo "No posts yet.";
+					else
+					{
+						echo "Showing ",$count," post";
+						if($count > 1)
+							echo "s";
+						echo ".";
+					}
+					?>
 			</div>
 		</div>
 	</div>
