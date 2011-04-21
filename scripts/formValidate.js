@@ -19,13 +19,19 @@ function formValidate(formName, arg1, arg2, arg3){
 	var frm = formName		//Store the name for the form
 
 	for(i = 0; i < fields.length; i++){
-		if(document.getElementById(fields[i]).value.length < 6){
-			alert("Your " + fields[i]+" was less than 6 characters. Please enter a correct " + fields[i] + " and try again");
+		if(document.getElementById(fields[i]).value == ""){
+			alert("Please enter a  " + fields[i] + " and try again");
 			document.getElementById(fields[i]).value = "";
 			document.getElementById(fields[i]).focus();
 			return false;
 		}
 	}
+	for(i=1; i<fields.length; i++){
+		if(document.getElementById(fields[i]).value.length < 6){
+			alert("Your " + fields[i] + " needs to be 6 characters or more");
+		}
+	}
+
 	if(document.getElementById(fields[1]).value != document.getElementById(fields[2]).value){
 		alert("Your password and confirmation don't match.");
 		document.getElementById(fields[1]).value = "";
