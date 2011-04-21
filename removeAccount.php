@@ -23,7 +23,7 @@
 			$collection=$db->users;
 			$cursor = $collection->remove($criteria);
 		
-			$collection=$db->profile;
+			$collection=$db->profiles;
 			$cursor = $collection->remove($criteria);
 			
 			$collection=$db->blog;
