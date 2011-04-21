@@ -15,35 +15,61 @@
 </head>
 <body>
 <div id="wrapper">
-
 	<div id="page"><div class="inner_copy"><div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div></div>
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
+				<?php
+					$username = "Admin";
+			               
+               				include "anti_xss.php";
+
+                			$name = anti_xss($_SESSION['name']);
+
+                			$connection = new Mongo();
+                			$db = $connection->antiblog;
+                			$collection = $db->blog;
+
+					//$title = $collection->find();
+					
+					//$queryName = array("body" => "");
+					$query = array("username"=> $username);
+                			$cursor = $collection->find($query)->sort(array('$natural' => -1));
+					//$date = $collection->find();
+				?>
+				<?php
+				$count=0;
+				foreach($cursor as $obj){
+				$count++;
+				?>
 				<div class="post">
-					<h2 class="title"><a href="#">Welcome to anti-blog </a></h2>
-					<p class="meta"><span class="date">April 14, 2011</span><span class="posted">Posted by: <a href="#">Admin</a></span></p>							
+					<h2 class="title"><a href="#">
+					<?php
+						 echo''.$obj ['title'].'';
+					?></a></h2>
+
+					<p class="meta"><span class="date"><?php echo''.$obj['date'].'';?></span><span class="posted">Posted by: <a href="#"><?php echo $obj['username'] ?></a></span></p>							
 					<div style="clear:both">&nbsp;</div>
 						<div class="entry">
-							Here is anti-blog a top secret project from team five.
-							We've gathered the most elite programmers in the UMW
-							Computer Science departement to provide the next generations
-							blog site. Watch out Facebook, MySpace, Twitter, and leading
-							Social media. anti-blog is coming to town.
+							<?php
+								
+								echo''.$obj['body'].'' ;
+							
+							?>
 						</div>
 					</div>
 					<div style="clear:both">&nbsp;</div>
 				</div>
-				<div class="post">
-					<h2 class="title"><a href="#">anti-blog online</a></h2>
-					<p class="meta"><span class="date">April 14, 2011</span><span class="posted">Posted by: <a href="#">Admin</a></span></p>							
-					<div style="clear:both">&nbsp;</div>
-						<div class="entry">
-							anti-blog goes live! This is great news, we're using MongoDB and PHP this is pretty sweet.
-							More information coming soon...
-						</div>
-					</div>
-					<div style="clear:both">&nbsp;</div>
-				</div>
+					<?php  } 
+					if($count == 0)
+						echo "No posts yet.";
+					else
+					{
+						echo "Showing ",$count," post";
+						if($count > 1)
+							echo "s";
+						echo ".";
+					}
+					?>
 			</div>
 		</div>
 	</div>
