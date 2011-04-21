@@ -2,6 +2,7 @@
 <head>
 	<title>anti-blog</title>
 	<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+	<META HTTP-EQUIV="Refresh" CONTENT ="3; index.php"/>
 </head>
 <body>
 <div id="wrapper">

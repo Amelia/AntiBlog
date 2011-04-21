@@ -31,8 +31,9 @@
 
 			session_start();
 			session_destroy();
-			include 'index.php';
+			//include 'index.php';
 		?>
+		<META HTTP-EQUIV="Refresh" CONTENT ="0; index.php"/>
 	</div>
 </div>
 </body>
