@@ -48,10 +48,8 @@
 								//code to make row of table here			
 					?>		
        																		
-<<<<<<< HEAD
-						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td><a href="blog.php?username=<?php echo $obj["username"]?>"><?php echo $count ?> posts</a></td><td>SOME DATE</td>
+						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td><a href="blog.php?username=<?php echo $obj["username"]?>"><?php echo $count ?> posts</a></td><td><?php echo $obj["joined"] ?></td>
 						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td><?php if($count > 0) { ?><a href="blog.php?username=<?php echo $obj["username"]?>"><?php echo $count," post"; if($count > 1) echo "s"; ?></a><?php } else {echo "<font color=#ED3A00>(none)";} ?></td><td>April, 14 2011</td>
->>>>>>> 6e2724dd4cce57cf25e5d07d697dbea31fe15450
 						<?php	}
 						}?>
 
