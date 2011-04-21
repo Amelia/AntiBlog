@@ -13,7 +13,7 @@
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
 				<div class="post">
-					<h2 class="title">Create Account A unique username is required.</h2>
+					<h2 class="title">Create Account</h2>
 					<p class="meta"><span class="date">Requirements: &nbsp; -Unique Username &nbsp; -Six digit Username &nbsp; -Six digit Password &nbsp;</span><span class="posted">&nbsp;</span></p>
 					<div style="clear:both">&nbsp;</div>
 						<div class="entry">
