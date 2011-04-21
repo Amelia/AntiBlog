@@ -39,7 +39,7 @@
 					<p class="meta"><span class="date">April 14, 2011</span><span class="posted">Posted by: <a href="#">Admin</a></span></p>							
 					<div style="clear:both">&nbsp;</div>
 						<div class="entry">
-							anti-blog goes live! This is great news, we're using MongoDB, PHP, and Node.js this is pretty sweet.
+							anti-blog goes live! This is great news, we're using MongoDB and PHP this is pretty sweet.
 							More information coming soon...
 						</div>
 					</div>
