@@ -34,9 +34,21 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 	</div>
 	<div id="menu">
 		<ul>
-			<li class="current_page_item"><a href="index.php">Home</a></li>
+			<li 
+				<?php 
+					if(strpos($_SERVER['PHP_SELF'], 'index.php')){
+						echo ' class="current_page_item"';
+					}
+				?>
+				><a href="index.php">Home</a></li>
 			<?php if($_SESSION['name'] != ''){ ?>
-				<li><a href="blog.php">My Blog</a></li>
+				<li
+					<?php 
+						if(strpos($_SERVER['PHP_SELF'], 'blog.php')){
+							echo ' class="current_page_item"';
+						}
+					?>
+					><a href="blog.php">My Blog</a></li>
 				<li><a href="addBlog.php">Create Post</a></li>
 				<li><a href="profile.php">My Profile</a></li>
 			<?php } ?>
