@@ -28,6 +28,11 @@
             			$error = TRUE;
         		}
     		}
+
+				//ensure name is still non-empty after running anti_xss
+				if($name == "")
+					$error = TRUE;
+
     		if($error == FALSE){
         		$obj= array("username"=>$name, "password" => sha1($pw), "joined" => date('D, d M Y H:i:s T'));
         		$collection->insert($obj);
@@ -40,6 +45,14 @@
 			<div id="page-bgbtm">
             			<?php if($error){
                				echo "<h1>ERROR ADDING TO DATABASE</h1>";
+											echo 'You entered: ',$username,'<br>';
+											echo "<br>";
+											echo "Some reasons you're getting this error include:<br><ul>";
+											echo "<li>your username is already taken</li>";
+											echo "<li>your username had invalid special characters or HTML tags</li>";
+											echo "<li>you didn't enter a username</li>";
+											echo "<li>you put leading/trailing spaces that were removed causing one of the above</li>";
+											echo "</ul>";
             			}else{
                				echo"<p>Thank you ".$name. ", your account has been successfully created!</p>";
                				echo"<p><a href=\"index.php\">Click here</a> to return to the home page</p>";
