@@ -48,7 +48,11 @@
 								//code to make row of table here			
 					?>		
        																		
-						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td><?php if($count > 0) { ?><a href="blog.php?username=<?php echo $obj["username"]?>"><?php echo $count," post"; if($count > 1) echo "s"; ?></a><?php } else {echo "<font color=#ED3A00>(none)";} ?></td><td><?php echo $obj["joined"] ?></td>
+						<tr>
+						<td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td>
+						<td><?php if($count > 0) { ?><a href="blog.php?username=<?php echo $obj["username"]?>"><?php echo $count," post"; if($count > 1) echo "s"; ?></a><?php } else {echo "<font color=#ED3A00>(none)";} ?></td>
+						<td><?php echo $obj["joined"] ?></td>
+						</tr>
 						<?php	}
 						}?>
 
