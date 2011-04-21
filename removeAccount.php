@@ -14,10 +14,11 @@
 		</script>	
 		
 				
-		<?php	$connection = new Mongo();
+		<?php
+			$connection = new Mongo();
 			$db = $connection->antiblog;
 
-			$criteria = array('username' => $_SESSION['username']);
+			$criteria = array('username' => $_SESSION['name']);
 			
 			$collection=$db->users;
 			$cursor = $collection->remove($criteria);
