@@ -1,3 +1,4 @@
+<?php include 'head.php';?>
 <html>
 <SCRIPT LANGUAGE="JavaScript" SRC="scripts/calendarPopup.js"></SCRIPT>
 <SCRIPT LANGUAGE="JavaScript">
@@ -10,9 +11,6 @@
 </head>
 <body>
 <div id="wrapper">
-	<?php
-		include 'head.php';
-?>
 <div id="page"><div class="inner_copy"><div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div></div>
     <div id="page-bgtop">
         <div id="page-bgbtm">
@@ -46,8 +44,23 @@ else
             <tr>
                  <th><label for="about">New About Me:</label></th>
                 <td><input type="text" id="about" name="about" /></td>
+            </tr>
+            <tr><td>&nbsp;</td></tr>
+            <tr><td>&nbsp;</td></tr>
             <tr>
+                 <th><label for="about">Old Password *required:</label></th>
+                <td><input type="text" id="about" name="about" /></td>
+            </tr>
             <tr>
+                 <th><label for="about">New Password:</label></th>
+                <td><input type="text" id="about" name="about" /></td>
+            </tr>
+            <tr>
+                 <th><label for="about">Confirm Password:</label></th>
+                <td><input type="text" id="about" name="about" /></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
                 <td><input type="submit" value="Update Profile"/></td>
             </tr>
 		</table>

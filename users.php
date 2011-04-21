@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php include 'head.php';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,9 +15,7 @@
 </head>
 <body>
 <div id="wrapper">
-	<?php
-		include 'head.php';
-	?>
+
 	<div id="page"><div class="inner_copy"><div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div></div>
 		<div id="page-bgtop">
 			<div id="page-bgbtm">

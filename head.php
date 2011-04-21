@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php session_start();
 header("Cache-Control: no-cache, must-revalidate"); // HTTP/1.1
 header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 ?>
@@ -12,7 +11,7 @@ header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
 		<div id="login">
 			<form action="login.php" method="post" id="login" onsubmit="return formValidate('login','username', 'password')">
 				<table>
-					<?php if($_SESSION['name'] == '' )
+					<?php if($_SESSION['name'] == null )
 						{
 					?>
 					<tr><td>user name:</td>

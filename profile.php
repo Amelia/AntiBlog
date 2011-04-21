@@ -1,3 +1,4 @@
+<?php include 'head.php';?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -15,12 +16,17 @@
 <body>
 <div id="wrapper">
 	<?php
-		include 'head.php';
+
+        $display = false;
+
         if($_GET['username']!=null){
             $username = $_GET['username'];
-        }else{
+            $display = true;
+        }else if($_SESSION['name']!=null){
             $username = $_SESSION['name'];
+            $display = true;
         }
+
             $connection = new Mongo();
     		$db = $connection->antiblog;
     		$collection = $db->profiles;
@@ -28,7 +34,7 @@
             $query = array("username"=> $username);
 //                    $rangeQuery = array('x' => array( '$gt' => 5, '$lt' => 20 ));
     		$cursor = $collection->find($query);
-    		$error = FALSE;
+
     		foreach($cursor as $obj){
                 $first = $obj["first"];
                 $last = $obj["last"];
@@ -43,6 +49,7 @@
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
 				<div class="post">
+                    <?php if(!$display){ echo "Please log in to view your profile";}else{ ?>
 					<table id="profile">
 							<th id="user">Username:</th>
 							<td><?php echo $username ?></td>
@@ -86,6 +93,7 @@
 					}
 					?>
 				</div>
+              <?php } ?>
 			</div>
 		</div>
 	</div>
