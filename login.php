@@ -13,7 +13,8 @@
 			<div id="page-bgbtm">
 				<?php
 
-				$name = $_POST['username'];
+				include 'anti_xss.php'; //this is for consistancy in case the username had leading/trailing whitespace
+				$name = anti_xss($_POST['username']);
 				$pw = $_POST['pw'];
 
                 $connection = new Mongo();
