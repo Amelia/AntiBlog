@@ -60,7 +60,7 @@
                                     // Find image to stream
                                     if($picname != null)
                                     {
-                                      ?><img src="uploaded_files/<?php echo $picname ?>" width="300" onclick="document.location.href = 'streamImage.php?username=<?php echo $username?>';"/><?php
+                                      ?><img src="streamImage.php?username=<?php echo $username?>" width="300" onclick="document.location.href = 'streamImage.php?username=<?php echo $username?>';"/><?php
                                     }
                                 ?>
                             </td>
