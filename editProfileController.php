@@ -17,9 +17,17 @@
             $dob = $_POST['dob'];
             $about = $_POST['about'];
             $pw = $_POST['password'];
+            $username = $_SESSION['name'];
+
+            $query = array("username"=> $username);
+    		$cursor = $collection->find($query);
+    		foreach($cursor as $obj){
+                $picid = $obj['picid'];
+                $picname = $obj['picname'];
+    		}
 
             $query = array("username"=>$username);
-            $query2 = array("username"=>$username, "first"=>$first, "last"=>$last, "interest"=>$interest, "dob"=>$dob, "about"=>$about);
+            $query2 = array("username"=>$username, "first"=>$first, "last"=>$last, "interest"=>$interest, "dob"=>$dob, "about"=>$about, "picid"=>$picid, "picname"=>$picname);
             if($pw != null){
                 $query3 = array("password"=> sha1($pw));
                 $collection2->update($query, $query3, true);

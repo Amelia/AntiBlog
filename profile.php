@@ -41,6 +41,8 @@
                 $interest = $obj["interest"];
                 $dob = $obj["dob"];
                 $about = $obj["about"];
+                $picid = $obj['picid'];
+                $picname = $obj['picname'];
 
     		}
 
@@ -53,6 +55,15 @@
 					<table id="profile">
 							<th id="user">Username:</th>
 							<td><?php echo $username ?></td>
+                            <td rowspan=3 id="pic">
+                                <?php
+                                    // Find image to stream
+                                    if($picname != null)
+                                    {
+                                      ?><img src="uploaded_files/<?php echo $picname ?>" width="300" onclick="document.location.href = 'streamImage.php?<?php echo $username?>';"/><?php
+                                    }
+                                ?>
+                            </td>
 						<!--	<td rowspan=3 id="pic"> <img src="images/hobbit.jpg" width="225" height="151" alt="Place profile picture here" /></td>-->
 						<tr>
 							<th>First Name:</th>

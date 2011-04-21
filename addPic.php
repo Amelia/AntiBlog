@@ -29,6 +29,20 @@ else
             $username = $_SESSION['name'];
             $query = array("username"=> $username);
     		$cursor = $collection->find($query);
+//<!--		// =====================================================================-->
+//<!--		// SCAFFOLDING!-->
+//<!--		// =====================================================================-->
+    // make a note of the current working directory relative to root.
+$directory_self = str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['PHP_SELF']);
+
+// make a note of the location of the upload handler script
+$uploadHandler = 'http://' . $_SERVER['HTTP_HOST'] . $directory_self . 'editProfileController';
+
+// set a max file size for the html upload form
+$max_file_size = 30000000; // size in bytes
+//<!--		// =====================================================================-->
+//<!--		// SCAFFOLDING!-->
+//<!--		// =====================================================================-->
 
     		foreach($cursor as $obj){
                 $first = $obj["first"];
@@ -40,56 +54,27 @@ else
     		}
 ?>
         <script type="text/javascript" language="JavaScript" src="scripts/formValidate.js"></script>
-        <form enctype="multipart/form-data" method="post" action="editProfileController.php" name=editProfile  onsubmit="return myPWValidate('editProfile', 'oldPW', 'password', 'confirm')">
+        <form enctype="multipart/form-data" method="post" action="addPicController.php" name=editProfile  onsubmit="return myPWValidate('editProfile', 'oldPW')">
 		<table id="profile">
-            <tr>
-                <th><label for="first">New First Name:</label></th>
-                <td><input type="text" id="first" name="first" value="<?php echo $first;?>" ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo $first;?>';"/></td>
-            <tr>
-                <th><label for="last">New Last Name:</label></th>
-                <td><input type="text" id="last" name="last" value="<?php echo $last;?>" ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo $last;?>';"//></td>
-            <tr>
-                <th><label for="interest">New Interests:</label></th>
-                <td><input type="text" id="interest" name="interest" value="<?php echo $interest;?>" ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo interest;?>';"//></td>
-            <tr>
-                 <th><label for="dob">New Date of Birth:</label></th>
-                <td>
-                    <INPUT TYPE="text" NAME="dob" ID="dob" SIZE=25 value="<?php echo $dob;?>" ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo $dob;?>';"/>
-                    <A HREF="#" onClick="cal.select(document.forms['editProfile'].dob,'anchor1','MM/dd/yyyy'); return false;" NAME="anchor1" ID="anchor1">select</A>
 
+            <tr>
+                <th>Choose A Picture To Upload</th>
+                <td>
+                    <p>
+                      <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo $max_file_size ?>">
+                      <input id="file" type="file" name="file">
+                    </p>
                 </td>
-            <tr>
-                 <th><label for="about">New About Me:</label></th>
-                 <td>
-                 <div class="entry">
-				    <textarea name="about" id="about" rows=10 cols=35 style='width:100%;'  ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo $about;?>';"><?php echo $about;?></textarea>
-				 </div>
-                 </td>
-<!--                <td><input type="text" id="about" name="about" value="--><?php //echo $about;?><!--" ondblclick="value=''" onblur="if (this.value == '') this.value = '--><?php //echo $about;?><!--';"//></td>-->
             </tr>
             <tr><td>&nbsp;</td></tr>
             <tr><td>&nbsp;</td></tr>
             <tr>
-                <td>&nbsp;</td>
-                <th><a href="addPic.php">Add a picture</a></th>
-            </tr>
-            <tr><td>&nbsp;</td></tr>
-            <tr><td>&nbsp;</td></tr>
-            <tr>
-                 <th><label for="oldPW">Old Password *required*:</label></th>
+                 <th><label for="oldPW">Password *required*:</label></th>
                 <td><input type="password" id="oldPW" name="oldPW" /></td>
             </tr>
             <tr>
-                 <th><label for="password">New Password:</label></th>
-                <td><input type="password" id="password" name="password" /></td>
-            </tr>
-            <tr>
-                 <th><label for="confirm">Confirm Password:</label></th>
-                <td><input type="password" id="confirm" name="confirm" /></td>
-            </tr>
-            <tr>
                 <td>&nbsp;</td>
-                <td><input id="submit" type="submit" name="submit" value="Update Profile!"></td>
+                <td><input id="submit" type="submit" name="submit" value="Upload A Picture!"></td>
             </tr>
 		</table>
         </form> 
@@ -104,10 +89,10 @@ else
 
 
 <script type='text/javascript' language="javascript">
-function myPWValidate(formName, arg1, arg2, arg3){
+function myPWValidate(formName, arg1){
 //    if(oldPWValidate(formName, arg1)) alert("OLDPW Pass"); else alert("OLDPW FAIL");
 //    if(newPasswordValidate(formName, arg2, arg3)) alert("NEWPW PASS"); else alert("NEWPW FAIL");
-    if (oldPWValidate(formName, arg1) && newPasswordValidate(formName, arg2, arg3)){
+    if (oldPWValidate(formName, arg1)){
         alert("Profile Updated");
         document.getElementById(formName).submit();
 	    return true;
