@@ -68,8 +68,7 @@ while(file_exists($uploadFilename = $uploadsDirectory.$now.'-'.$_FILES[$fieldnam
 
 // now let's move the file to its final location and allocate the new filename to it
 @move_uploaded_file($_FILES[$fieldname]['tmp_name'], $uploadFilename)
-    or error('receiving directory insuffiecient permission on '.$uploadFilename, $uploadForm);
-//TODO: above error better
+    or error('receiving directory insufficient permission, please check that uploaded_files is writable ', $uploadForm);
 
 // If you got this far, everything has worked and the file has been successfully saved.
 // We are now going to redirect the client to a success page.
