@@ -1,5 +1,3 @@
-
-
 <html>
 <head>
 	<title>anti-blog</title>
@@ -7,6 +5,8 @@
 </head>
 <body>
 <div id="wrapper">
+
+
 	<?php
 		include 'createAccountHead.php';
    		include "anti_xss.php";
@@ -29,33 +29,26 @@
         		}
     		}
     		if($error == FALSE){
-        		$obj= array("username"=>$name, "password" => sha1($pw));
+        		$obj= array("username"=>$name, "password" => sha1($pw), "joined" => date('D, d M Y H:i:s T'));
         		$collection->insert($obj);
    	    	}
 	?>
 
-    <div id="page"><div class="inner_copy"><div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div></div>
+    <div id="page">
+	<div class="inner_copy">Best selection of premium <a href="http://www.templatemonster.com/pack/joomla-1-6-templates/">Joomla 1.6 templates</a></div>
 		<div id="page-bgtop">
 			<div id="page-bgbtm">
-            <?php if($error){
-               echo "<h1>ERROR ADDING TO DATABASE</h1>";
-            }else{
-               echo"<p>Thank you ".$name. ", your account has been successfully created!</p>";
-               echo"<p><a href=\"index.php\">Click here</a> to return to the home page</p>";
-            }?>
-					<div style="clear:both">&nbsp;</div>
+            			<?php if($error){
+               				echo "<h1>ERROR ADDING TO DATABASE</h1>";
+            			}else{
+               				echo"<p>Thank you ".$name. ", your account has been successfully created!</p>";
+               				echo"<p><a href=\"index.php\">Click here</a> to return to the home page</p>";
+            			}?>
+				<div style="clear:both">&nbsp;</div>
 				</div>
 			</div>
 		</div>
-
-<h1></h1>
-
-
-
-
-	<div>
-<body>
-
+	</div>
 </div>
 </body>
 </html>

@@ -46,9 +46,9 @@
 
 
 								//code to make row of table here			
-							?>		
+					?>		
        																		
-						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td><a href="blog.php?username=<?php echo $obj["username"]?>"><?php echo $count ?> posts</a></td><td>April, 14 2011</td>
+						<tr><td><a href="profile.php?username=<?php echo $obj["username"]?>"><?php echo $obj["username"]?></a></td><td><a href="blog.php?username=<?php echo $obj["username"]?>"><?php echo $count ?> posts</a></td><td><?php echo $obj["joined"] ?></td>
 						<?php	}
 						}?>
 
