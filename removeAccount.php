@@ -12,7 +12,26 @@
 		<script language="javascript" type="text/javascript">
 			alert('Please don\'t go!');
 		</script>	
-		DESTROY Account
+		
+				
+		<?php	$connection = new Mongo();
+			$db = $connection->antiblog;
+
+			$criteria = array('username' => $_SESSION['username']);
+			
+			$collection=$db->users;
+			$cursor = $collection->remove($criteria);
+		
+			$collection=$db->profile;
+			$cursor = $collection->remove($criteria);
+			
+			$collection=$db->blog;
+			$cursor = $collection->remove($criteria);
+
+			session_start();
+			session_destroy();
+			include 'index.php';
+		?>
 	</div>
 </div>
 </body>
