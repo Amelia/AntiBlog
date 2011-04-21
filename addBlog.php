@@ -23,7 +23,7 @@
 			<div id="page-bgbtm">
 				<div class="post">
 					<h2 class="title"><input type="text" name="title" size=100 value="Untitled"></h2>
-					<p class="meta"><span class="date">(Date will auto-set when you submit.)</span><span class="posted">Posted by: <?php echo $_SESSION['name'] ?></span></p>							
+					<p class="meta"><span class="date">(Date/time will auto-set when you submit.)</span><span class="posted">Posted by: <?php echo $_SESSION['name'] ?></span></p>							
 					<div style="clear:both">&nbsp;</div>
 						<div class="entry">
 						<textarea name=body rows=10 cols=75>Your text here.</textarea>
