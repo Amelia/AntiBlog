@@ -8,6 +8,7 @@
     		$connection = new Mongo();
     		$db = $connection->antiblog;
     		$collection = $db->profiles;
+            $collection2 = $db->users;
 
             $username = $_SESSION['name'];
             $first = $_POST['first'];
@@ -15,9 +16,15 @@
             $interest = $_POST['interest'];
             $dob = $_POST['dob'];
             $about = $_POST['about'];
+            $pw = $_POST['password'];
 
             $query = array("username"=>$username);
             $query2 = array("username"=>$username, "first"=>$first, "last"=>$last, "interest"=>$interest, "dob"=>$dob, "about"=>$about);
+            if($pw != null){
+                $query3 = array("password"=> sha1($pw));
+                $collection2->update($query, $query3, true);
+                $_SESSION['pw'] = $pw;
+            }
             $collection->update($query, $query2, true);
 
 //echo $username;
