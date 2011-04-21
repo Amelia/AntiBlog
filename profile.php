@@ -53,7 +53,7 @@
 					<table id="profile">
 							<th id="user">Username:</th>
 							<td><?php echo $username ?></td>
-							<td rowspan=3 id="pic"> <img src="images/hobbit.jpg" width="225" height="151" alt="Place profile picture here" /></td>
+						<!--	<td rowspan=3 id="pic"> <img src="images/hobbit.jpg" width="225" height="151" alt="Place profile picture here" /></td>-->
 						<tr>
 							<th>First Name:</th>
 							<td><?php echo $first ?></td>
