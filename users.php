@@ -41,9 +41,9 @@
 							$query2=array("username"=> $obj["username"]);
 							$collection2=$db->blog;
 							$cursor2 = $collection2->find($query2);
-							$count=0;
-							foreach($cursor2 as $obj2)
-								$count++;
+							$count=$cursor2->count();
+							//foreach($cursor2 as $obj2)
+								//$count++;
 
 
 
