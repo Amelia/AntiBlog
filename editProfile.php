@@ -22,42 +22,64 @@ if($_SESSION['name'] == '')
 }
 else
 {
+            $connection = new Mongo();
+    		$db = $connection->antiblog;
+    		$collection = $db->profiles;
+
+            $username = $_SESSION['name'];
+            $query = array("username"=> $username);
+    		$cursor = $collection->find($query);
+
+    		foreach($cursor as $obj){
+                $first = $obj["first"];
+                $last = $obj["last"];
+                $interest = $obj["interest"];
+                $dob = $obj["dob"];
+                $about = $obj["about"];
+
+    		}
 ?>
-        <form method="post" action="editProfileController.php" name=editProfile>
+        <script type="text/javascript" language="JavaScript" src="scripts/formValidate.js"></script>
+        <form method="post" action="editProfileController.php" name=editProfile  onsubmit="return myPWValidate('editProfile', 'oldPW', 'password', 'confirm')">
 		<table id="profile">
             <tr>
                 <th><label for="first">New First Name:</label></th>
-                <td><input type="text" id="first" name="first" /></td>
+                <td><input type="text" id="first" name="first" value="<?php echo $first;?>" ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo $first;?>';"/></td>
             <tr>
                 <th><label for="last">New Last Name:</label></th>
-                <td><input type="text" id="last" name="last" /></td>
+                <td><input type="text" id="last" name="last" value="<?php echo $last;?>" ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo $last;?>';"//></td>
             <tr>
                 <th><label for="interest">New Interests:</label></th>
-                <td><input type="text" id="interest" name="interest" /></td>
+                <td><input type="text" id="interest" name="interest" value="<?php echo $interest;?>" ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo interest;?>';"//></td>
             <tr>
                  <th><label for="dob">New Date of Birth:</label></th>
                 <td>
-                    <INPUT TYPE="text" NAME="dob" ID="dob" VALUE="" SIZE=25>
+                    <INPUT TYPE="text" NAME="dob" ID="dob" SIZE=25 value="<?php echo $dob;?>" ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo $dob;?>';"/>
                     <A HREF="#" onClick="cal.select(document.forms['editProfile'].dob,'anchor1','MM/dd/yyyy'); return false;" NAME="anchor1" ID="anchor1">select</A>
 
                 </td>
             <tr>
                  <th><label for="about">New About Me:</label></th>
-                <td><input type="text" id="about" name="about" /></td>
+                 <td>
+                 <div class="entry">
+				    <textarea name="about" id="about" rows=10 cols=35 style='width:100%;'  ondblclick="value=''" onblur="if (this.value == '') this.value = '<?php echo $about;?>';"><?php echo $about;?></textarea>
+				 </div>
+                 </td>
+<!--                <td><input type="text" id="about" name="about" value="--><?php //echo $about;?><!--" ondblclick="value=''" onblur="if (this.value == '') this.value = '--><?php //echo $about;?><!--';"//></td>-->
             </tr>
             <tr><td>&nbsp;</td></tr>
             <tr><td>&nbsp;</td></tr>
             <tr>
-                 <th><label for="about">Old Password *required:</label></th>
-                <td><input type="text" id="about" name="about" /></td>
+                 <th><label for="oldPW">Old Password *required*:</label></th>
+                <td><input type="password" id="oldPW" name="oldPW" /></td>
             </tr>
             <tr>
-                 <th><label for="about">New Password:</label></th>
-                <td><input type="text" id="about" name="about" /></td>
+                 <th><label for="password">New Password:</label></th>
+                <td><input type="password" id="password" name="password" /></td>
             </tr>
             <tr>
-                 <th><label for="about">Confirm Password:</label></th>
-                <td><input type="text" id="about" name="about" /></td>
+                 <th><label for="confirm">Confirm Password:</label></th>
+                <td><input type="password" id="confirm" name="confirm" /></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -74,6 +96,56 @@ else
 </body>
 </html>
 
+
+<script type='text/javascript' language="javascript">
+function myPWValidate(formName, arg1, arg2, arg3){
+//    if(oldPWValidate(formName, arg1)) alert("OLDPW Pass"); else alert("OLDPW FAIL");
+//    if(newPasswordValidate(formName, arg2, arg3)) alert("NEWPW PASS"); else alert("NEWPW FAIL");
+    if (oldPWValidate(formName, arg1) && newPasswordValidate(formName, arg2, arg3)){
+        alert("Profile Updated");
+        document.getElementById(formName).submit();
+	    return true;
+    }
+    return false
+}
+function oldPWValidate(formName, arg1){
+    var fields = new Array();	//create an array to store all of the field names
+
+	fields[0] = arg1;
+
+	var frm = formName		//Store the name for the form
+
+    if(document.getElementById(fields[0]).value == ""){
+        alert("Please enter an Old Password and try again");
+        document.getElementById(fields[0]).value = "";
+        document.getElementById(fields[0]).focus();
+        return false;
+    }else if(document.getElementById(fields[0]).value != "<?php echo $_SESSION['pw'];?>"){
+        alert("Old Password is Incorrect. Try again");
+        document.getElementById(fields[0]).value = "";
+        document.getElementById(fields[0]).focus();
+        return false;
+    }
+	return true;
+}
+function newPasswordValidate(formName, arg1, arg2){
+    var fields = new Array();	//create an array to store all of the field names
+
+	fields[0] = arg1;
+	fields[1] = arg2;
+
+    var frm = formName		//Store the name for the form
+
+    if(document.getElementById(fields[1]).value != document.getElementById(fields[0]).value){
+		alert("Your password and confirmation don't match.");
+		document.getElementById(fields[1]).value = "";
+		document.getElementById(fields[0]).value = "";
+		document.getElementById(fields[0]).focus();
+		return false;
+	}
+	return true;
+}
+</script>
 <!--<form method="post" action="changePWController.php" name=changepw>
 				<label for="username">Username:</label>
 				<input type="text" id="username" name="username" /><br />
@@ -94,4 +166,10 @@ else
                        onClick="cal.select(document.forms['example'].date1,'anchor1','MM/dd/yyyy'); return false;"
                        NAME="anchor1" ID="anchor1">select</A>
                     </FORM>
+
+onfocus="if (this.value == 'zip') this.value = '';"
+onblur="if (this.value == '') this.value = 'zip';"
+ondblclick="value=''"
+
+<input type="text" name="Zip" value=" Zip" size="5" onfocus="value=''" maxlength="5"> 
 			-->
