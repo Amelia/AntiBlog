@@ -25,13 +25,20 @@ if($_SESSION['name'] == '')
 { echo 'Please log in to create a post.';}
 else{
 ?>
+		<!-- Clear the text area when it's clicked -->
+		<script type=text/javascript language=JavaScript>
+			function clearText(arg){
+				var txt = arg;
+				document.getElementById(arg).value ="";
+			}
+		</script>
                 <form action=addBlogController.php method=post name=addBlog>
 				<div class="post">
 					<h2 class="title"><input type="text" name="title" size=100 value="Untitled" style='width:100%;'></h2>
 					<p class="meta"><span class="date">(Date/time will auto-set when you submit.)</span><span class="posted">Posted by: <?php echo $_SESSION['name'] ?></span></p>							
 					<div style="clear:both">&nbsp;</div>
 						<div class="entry">
-						<textarea name=body rows=10 cols=75 style='width:100%;'>Your text here.</textarea>
+						<textarea id="blgpst" name=body rows=10 cols=75 style='width:100%;' onfocus="clearText('blgpst')">Your text here.</textarea>
 						</div>
 						<input type=submit value="Post new blog!">
 					</div>
