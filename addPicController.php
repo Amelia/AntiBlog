@@ -18,7 +18,8 @@
 $directory_self = str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['PHP_SELF']);
 
 // make a note of the directory that will recieve the uploaded file
-$uploadsDirectory = $_SERVER['DOCUMENT_ROOT'] . $directory_self . 'uploaded_files/';
+//$uploadsDirectory = $_SERVER['DOCUMENT_ROOT'] . $directory_self . 'uploaded_files/';
+$uploadsDirectory = 'uploaded_files/';
 
 // make a note of the location of the upload form in case we need it
 $uploadForm = 'http://' . $_SERVER['HTTP_HOST'] . $directory_self . 'editProfile.php';
@@ -67,7 +68,8 @@ while(file_exists($uploadFilename = $uploadsDirectory.$now.'-'.$_FILES[$fieldnam
 
 // now let's move the file to its final location and allocate the new filename to it
 @move_uploaded_file($_FILES[$fieldname]['tmp_name'], $uploadFilename)
-    or error('receiving directory insuffiecient permission', $uploadForm);
+    or error('receiving directory insuffiecient permission on '.$uploadFilename, $uploadForm);
+//TODO: above error better
 
 // If you got this far, everything has worked and the file has been successfully saved.
 // We are now going to redirect the client to a success page.
