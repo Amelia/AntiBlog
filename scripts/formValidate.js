@@ -26,10 +26,9 @@ function formValidate(formName, arg1, arg2, arg3){
 			return false;
 		}
 	}
-	for(i=1; i<fields.length; i++){
-		if(document.getElementById(fields[i]).value.length < 6){
-			alert("Your " + fields[i] + " needs to be 6 characters or more");
-		}
+	if(document.getElementById(fields[1]).value.length < 6){
+		alert("Your " + fields[1] + " needs to be 6 characters or more");
+		return false;
 	}
 
 	if(document.getElementById(fields[1]).value != document.getElementById(fields[2]).value){
